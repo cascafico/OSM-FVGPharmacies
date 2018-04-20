@@ -6,6 +6,7 @@ pharmacies are ofted duplicate due to change in operator and not purging older o
 csv from MISA needs some string adjustment, which has to be performed by Qgis 
 - unuseful field removal
 - title string funct on "DESCRIZIONEFARMACIA"
-- split "INDIRIZZO" in street and housenumber accomplished with field calculator:
-  left("INDIRIZZO", strpos("INDIRIZZO", ','))
+- split "INDIRIZZO" in street and housenumber accomplished with field calculator:   
+  left("INDIRIZZO", strpos("INDIRIZZO", ','))   
+  right("INDIRIZZO", length("INDIRIZZO")-(strpos("INDIRIZZO", ',')+1))
 
