@@ -12,7 +12,7 @@ spacesNumber = 1
 #filename = raw_input('\nWhat is filename, minus .csv:  ')
 filename = ( str(sys.argv[1]))    
 #reader = csv.reader(open(filename + '.csv'), delimiter=',')  #Data from here
-reader = csv.reader(open(filename), delimiter=',')  #Data from here
+reader = csv.reader(open(filename), delimiter=';')  #Data from here
 f = open(filename + '.json', 'w')                             #Data goes here
 
 
