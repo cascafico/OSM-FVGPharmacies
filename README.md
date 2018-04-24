@@ -1,6 +1,10 @@
 # OSM-FVGPharmacies - data preparation for Openstreetmap import
 
-pharmacies are ofted duplicate due to change in operator and not purging older ones (need filtering by "DATAFINEVALIDITA")
+IMPORTANT: import has been suspended since source dataset coordinates seems inaccurate
+
+## refining
+
+Pharmacy records are often duplicated due to change in operator and not purging older ones (need filtering by "DATAFINEVALIDITA")
 
 csv from MISA needs some string adjustment, which has to be performed by Qgis 
 - unuseful field removal
@@ -19,10 +23,13 @@ END
 
 DATAINIZIO formatted from DD/MM/YYYY to intl YYYY-MM-DD a using substr
 
------File fix.sh-----
+## File fix.sh
 
-also several cases of quotes used incorrectly, ie "Comunale ""Villa San Giuseppe"""
-requires removing, done via awk in fix.sh
+also several cases of double quotes used incorrectly, 
+
+besides some other anomalies such backslashes and Nan values require fixing, 
+to detect such anomalies, a JSON validator has been used (JSONedit 0.9.9.0)
+done via awk in fix.sh
 
 again, awk used to add header for csv2json utility and some semicolon after tag fiels to obtain something like:
 {;lon;lat;id;tags{;name;ref:vatin;addr:postcode;addr:city;start_date;addr:street;addr:housenumber;};}
